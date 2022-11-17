@@ -277,7 +277,7 @@ def where1(m, data, slots, lvl, out):
   def tooFew() : return len(data) < slots.minSize
   def show(suffix): 
     if slots.verbose: 
-      print slots.b4*lvl + str(len(data)) + suffix
+      print(slots.b4*lvl + str(len(data)) + suffix)
   if tooDeep() or tooFew():
     show(".")
     out += [data]
@@ -359,8 +359,8 @@ sys.dont_write_bytecode = True
 
 def go(f):
   "A decorator that runs code at load time."
-  print "\n# ---|", f.__name__,"|-----------------"
-  if f.__doc__: print "#", f.__doc__
+  print("\n# ---|", f.__name__,"|-----------------")
+  if f.__doc__: print("#", f.__doc__)
   f()
 
 # random stuff
@@ -483,11 +483,11 @@ def _distances():
   for i in pop:
     j = closest(m,i,pop)
     k = furthest(m,i,pop)
-    print "\n",\
+    print("\n",\
           gs(i.dec), g(scores(m,i)),"\n",\
           gs(j.dec),"closest ", g(dist(m,i,j)),"\n",\
-          gs(k.dec),"furthest", g(dist(m,i,k))
-    print i
+          gs(k.dec),"furthest", g(dist(m,i,k)))
+    print(i)
 """
 
 A standard call to WHERE, pruning disabled:
@@ -508,7 +508,7 @@ def _where():
   n=0
   for leaf in where(m, pop, slots):
     n += len(leaf)
-  print n,slots
+  print(n,slots)
 """
 
 Compares WHERE to GAC:
@@ -536,4 +536,4 @@ def _whereTiming():
                 wriggle = 0.3*kept.s())
     t1 =  timing(lambda : where(m, pop, slots),10)
     t2 =  timing(lambda : allPairs(pop),10)
-    print max,t1,t2, int(100*t2/t1)
+    print(max,t1,t2, int(100*t2/t1))

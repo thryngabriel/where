@@ -37,10 +37,10 @@ def fastmap(m,data):
     x = (a*a + c*c - b*b)/(2*c) # cosine rule
     y = max(0, a**2 - x**2)**0.5 # not used, here for a demo
     lst  += [(x,one)]
-  lst   = sorted(lst)
+  lst   = sorted(lst, key=lambda x: x[0])
   mid   = len(lst)//2
-  wests = map(second,lst[:mid])
-  easts = map(second,lst[mid:])
+  wests = list(map(second,lst[:mid]))
+  easts = list(map(second,lst[mid:]))
   return wests,west, easts,east,c
 """
 
